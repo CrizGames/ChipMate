@@ -1,0 +1,35 @@
+﻿<Window 
+    x:Class="ChipMate.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:monoGameControls="clr-namespace:MonoGame.WpfCore.MonoGameControls"
+    xmlns:local="clr-namespace:ChipMate"
+    mc:Ignorable="d"
+    Title="ChipMate by Criz Games | Chip-8 Emulator" 
+    WindowStartupLocation="CenterScreen"
+    Width="800"
+    Height="450"
+    KeyDown="Window_KeyDown"
+    KeyUp="Window_KeyUp"
+    Initialized="Window_Initialized">
+    <Window.DataContext>
+        <local:Emulator x:Name="emu" />
+    </Window.DataContext>
+
+    <DockPanel LastChildFill="True">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Open..." Click="MenuItem_OpenRom_Click"/>
+                <Separator />
+                <MenuItem Header="E_xit" Click="MenuItem_Exit_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="_About ChipMate" Click="MenuItem_About_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <monoGameControls:MonoGameContentControl />
+    </DockPanel>
+</Window>
